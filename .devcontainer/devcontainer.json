@@ -1,0 +1,17 @@
+{
+  "name": "Voice Converter Dev Container",
+  "image": "mcr.microsoft.com/devcontainers/universal:latest",
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash"
+  },
+  "extensions": [
+    "ms-python.python",
+    "ms-toolsai.jupyter"
+  ],
+  "postCreateCommand": "pip install -r requirements.txt && jupyter notebook",
+  "tasks": {
+    "test": "pip install -r requirements.txt && jupyter nbconvert --to notebook --execute 01_voice_data.ipynb && jupyter nbconvert --to notebook --execute 02_rms_pitch.ipynb && jupyter nbconvert --to notebook --execute 03_timing.ipynb && jupyter nbconvert --to notebook --execute 04_resynthetic1.ipynb && jupyter nbconvert --to notebook --execute 05_resynthetic2.ipynb && jupyter nbconvert --to notebook --execute 06_pitch.ipynb && jupyter nbconvert --to notebook --execute 07_pitch2.ipynb && jupyter nbconvert --to notebook --execute 08_speed.ipynb && jupyter nbconvert --to notebook --execute 09_noise.ipynb && jupyter nbconvert --to notebook --execute 10_reverb.ipynb && jupyter nbconvert --to notebook --execute 11_module.ipynb",
+    "build": "pip install -r requirements.txt",
+    "launch": "pip install -r requirements.txt && jupyter notebook"
+  }
+}
